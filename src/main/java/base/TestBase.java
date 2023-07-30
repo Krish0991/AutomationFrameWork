@@ -49,5 +49,10 @@ public class TestBase {
 		driver.quit();
 	}
 	
+	public void testPrerequisite(String className) {
+		String classNameReceived=className;
+		System.out.println(classNameReceived);
+	}
+	
 	
 }
