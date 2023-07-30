@@ -15,7 +15,7 @@ import pages.HomePage;
 public class Selenium2ndScript extends TestBase{
 	@BeforeTest
 	public void launchBrowser() {
-		initialization();
+		testSetUp(getClass().getName());
 	}
 
 

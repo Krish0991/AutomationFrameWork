@@ -17,7 +17,7 @@ public class Selenium1stScript extends TestBase{
 	
 	@BeforeTest
 	public void launchBrowser() {
-		initialization();
+		testSetUp(getClass().getName());
 	}
 
 

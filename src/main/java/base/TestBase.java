@@ -16,6 +16,7 @@ public class TestBase {
 	protected ExcelReader dataTable=new ExcelReader();
 	
 	public Properties prop;
+	String currentClassName=null;
 	
 	public TestBase() {
 		prop=new Properties();
@@ -29,8 +30,12 @@ public class TestBase {
 		}
 	}
 	
+	public void tearDown() {
+		driver.quit();
+	}
 	
-	public void initialization() {
+	public void testSetUp(String className) {
+		currentClassName=className;
 		if(prop.getProperty("browser").equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", "C:\\Users\\USER\\Desktop\\SeleniumScriptWorkspace\\SeleniumPOC\\src\\test\\resources\\chromedriver.exe");
 			driver=new ChromeDriver();
@@ -42,16 +47,8 @@ public class TestBase {
 		driver.manage().window().maximize();
 		String urlValue=prop.getProperty("url");
 		driver.get(urlValue);
+
 		
-	}
-	
-	public void tearDown() {
-		driver.quit();
-	}
-	
-	public void testPrerequisite(String className) {
-		String classNameReceived=className;
-		System.out.println(classNameReceived);
 	}
 	
 	

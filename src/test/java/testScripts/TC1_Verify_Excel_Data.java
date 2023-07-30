@@ -12,7 +12,7 @@ public class TC1_Verify_Excel_Data extends TestBase{
 	
 	@BeforeTest
 	public void launchBrowser() {
-		testPrerequisite(getClass().getName());
+		testSetUp(getClass().getName());
 		//initialization();
 	}
 	
