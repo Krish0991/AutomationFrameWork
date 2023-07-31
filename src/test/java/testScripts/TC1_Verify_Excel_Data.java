@@ -18,7 +18,10 @@ public class TC1_Verify_Excel_Data extends TestBase{
 	
 	@Test
 	public void executeTest() {
-		dataTable.getData(null, null);
+		String datafromExcel=dataTable.getData("General_Data", "Column2");
+		String TESTdATAfromExcel=dataTable.getData("Test_Data", "Column2");
+		System.out.println(datafromExcel);
+		System.out.println(TESTdATAfromExcel);
 	}
 	
 	/*
