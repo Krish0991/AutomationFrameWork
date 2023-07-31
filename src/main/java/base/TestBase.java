@@ -13,10 +13,10 @@ import utils.ExcelReader;
 public class TestBase {
 	
 	protected static WebDriver driver;
-	protected ExcelReader dataTable=new ExcelReader();
+	protected ExcelReader dataTable;
 	
 	public Properties prop;
-	String currentClassName=null;
+	protected String currentClassName=null;
 	
 	public TestBase() {
 		prop=new Properties();
@@ -35,18 +35,19 @@ public class TestBase {
 	}
 	
 	public void testSetUp(String className) {
+		dataTable=new ExcelReader(className);
 		currentClassName=className;
-		if(prop.getProperty("browser").equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\USER\\Desktop\\SeleniumScriptWorkspace\\SeleniumPOC\\src\\test\\resources\\chromedriver.exe");
-			driver=new ChromeDriver();
-		}
-		else if(prop.getProperty("browser").equals("edge")) {
-			
-		}
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-		driver.manage().window().maximize();
-		String urlValue=prop.getProperty("url");
-		driver.get(urlValue);
+		/*
+		 * if(prop.getProperty("browser").equals("chrome")) {
+		 * System.setProperty("webdriver.chrome.driver",
+		 * "C:\\Users\\USER\\Desktop\\SeleniumScriptWorkspace\\SeleniumPOC\\src\\test\\resources\\chromedriver.exe"
+		 * ); driver=new ChromeDriver(); } else
+		 * if(prop.getProperty("browser").equals("edge")) {
+		 * 
+		 * } driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		 * driver.manage().window().maximize(); String urlValue=prop.getProperty("url");
+		 * driver.get(urlValue);
+		 */
 
 		
 	}

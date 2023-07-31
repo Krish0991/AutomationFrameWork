@@ -18,7 +18,7 @@ public class TC1_Verify_Excel_Data extends TestBase{
 	
 	@Test
 	public void executeTest() {
-		//dataTable.getData(null, null);
+		dataTable.getData(null, null);
 	}
 	
 	/*
