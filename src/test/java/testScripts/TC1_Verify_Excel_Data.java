@@ -24,9 +24,9 @@ public class TC1_Verify_Excel_Data extends TestBase{
 		System.out.println(TESTdATAfromExcel);
 	}
 	
-	/*
-	 * @AfterTest public void quitDriver() { tearDown(); }
-	 */
+	@AfterTest public void quitDriver()
+	{ tearDown();}
+	 
 	
 	
 
