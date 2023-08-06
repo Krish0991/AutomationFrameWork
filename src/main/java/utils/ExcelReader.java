@@ -13,19 +13,23 @@ import base.TestBase;
 
 public class ExcelReader{
 	
-	String currentClassName=null;
+	String testCaseName=null;
+	String packageName=null;
 	
-	public ExcelReader(String className) {
-		this.currentClassName=className;
+	public ExcelReader(String[] className) {
+		this.testCaseName=className[className.length-1];
+		this.packageName=className[className.length-2];
+		System.out.println(testCaseName);
+		System.out.println(packageName);
 	}
 	
 	public String getData(String sheetName, String columnName) {
 		String testData=null;
-		System.out.println(currentClassName);
+		
 		try {
 			
  			String projectPath=System.getProperty("user.dir");
-			String defaultPath=System.getProperty("user.dir") + "\\src\\test\\resources\\WebsiteData.xlsx";
+			String defaultPath=System.getProperty("user.dir") + "\\src\\test\\resources\\"+packageName+".xlsx";
 			FileInputStream fis=new FileInputStream(defaultPath);
 			XSSFWorkbook wBook=new XSSFWorkbook(fis);
 			int sheets=wBook.getNumberOfSheets();
@@ -43,7 +47,7 @@ public class ExcelReader{
 					int desiredColumn=0;
 					while(ce.hasNext()) {
 						Cell value=ce.next();
-						if(value.getStringCellValue().equalsIgnoreCase("TC1_Verify_Excel_Data")) {
+						if(value.getStringCellValue().equalsIgnoreCase(testCaseName)) {
 							column=k;
 						}
 						k++;
@@ -54,10 +58,9 @@ public class ExcelReader{
 					}
 					while(rows.hasNext()) {
 						Row r = rows.next();
-						if(r.getCell(column).getStringCellValue().equalsIgnoreCase("TC1_Verify_Excel_Data"))
+						if(r.getCell(column).getStringCellValue().equalsIgnoreCase(testCaseName))
 						{
 							testData=r.getCell(desiredColumn).getStringCellValue();
-							System.out.println(testData);
 						}
 					}
 				}

@@ -1,4 +1,4 @@
-package testScripts;
+package testScripts.loginPage;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -18,13 +18,15 @@ public class TC1_Verify_Excel_Data extends TestBase{
 	
 	@Test
 	public void executeTest() {
-		String datafromExcel=dataTable.getData("General_Data", "Column2");
-		String TESTdATAfromExcel=dataTable.getData("Test_Data", "Column2");
+		String datafromExcel=dataTable.getData("General_Data", "FirstName");
+		String TESTdATAfromExcel=dataTable.getData("General_Data", "LastName");
+		String TESTdATAfromExce=dataTable.getData("General_Data", "DOB");
 		System.out.println(datafromExcel);
 		System.out.println(TESTdATAfromExcel);
 	}
 	
-	@AfterTest public void quitDriver()
+	@AfterTest
+	public void quitDriver()
 	{ tearDown();}
 	 
 	

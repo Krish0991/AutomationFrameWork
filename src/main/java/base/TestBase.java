@@ -37,17 +37,19 @@ public class TestBase {
 	}
 
 	public void testSetUp(String className) {
-		dataTable = new ExcelReader(className);
-		currentClassName = className;
-		 if(prop.getProperty("browser").equals("chrome")) {
-		 WebDriverManager.chromedriver().setup();
-		 driver=new ChromeDriver(); } 
-		 else if(prop.getProperty("browser").equals("edge")) {
-			 WebDriverManager.edgedriver().setup();
-			 driver=new EdgeDriver();
-		 } driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-		 driver.manage().window().maximize(); String urlValue=prop.getProperty("url");
-		 driver.get(urlValue);
+		String[] exactClassName=className.split("[.]");
+		String testCaseName=exactClassName[exactClassName.length-1];
+		dataTable = new ExcelReader(exactClassName);
+		
+		  currentClassName = className;
+		  if(prop.getProperty("browser").equals("chrome")) {
+		  WebDriverManager.chromedriver().setup(); driver=new ChromeDriver(); } else
+		  if(prop.getProperty("browser").equals("edge")) {
+		  WebDriverManager.edgedriver().setup(); driver=new EdgeDriver(); }
+		  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		  driver.manage().window().maximize(); String urlValue=prop.getProperty("url");
+		  driver.get(urlValue);
+		 
 	}
 
 }
