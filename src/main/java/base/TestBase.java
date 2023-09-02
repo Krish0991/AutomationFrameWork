@@ -37,8 +37,9 @@ public class TestBase {
 	}
 
 	public void testSetUp(String className) {
+		
 		String[] exactClassName=className.split("[.]");
-		String testCaseName=exactClassName[exactClassName.length-1];
+		System.out.println(exactClassName.length);
 		dataTable = new ExcelReader(exactClassName);
 		
 		  currentClassName = className;
