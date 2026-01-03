@@ -1,0 +1,55 @@
+pipeline {
+    agent any
+
+    tools {
+        jdk 'JDK11'          // Change to your configured JDK name in Jenkins
+        maven 'Maven3'       // Change to your configured Maven name
+    }
+
+    triggers {
+        cron('H */12 * * *')   // Runs every 12 hours
+    }
+
+    environment {
+        MAVEN_OPTS = '-Xmx1024m'
+    }
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/username/repo-name.git'
+            }
+        }
+
+        stage('Clean & Build') {
+            steps {
+                sh 'mvn clean compile'
+            }
+        }
+
+        stage('Run Selenium Tests') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
+    }
+
+    post {
+
+        always {
+            echo 'Pipeline execution completed'
+            archiveArtifacts artifacts: '**/target/*.log', allowEmptyArchive: true
+        }
+
+        success {
+            echo 'Selenium tests passed successfully'
+        }
+
+        failure {
+            echo 'Selenium tests failed'
+        }
+    }
+}
