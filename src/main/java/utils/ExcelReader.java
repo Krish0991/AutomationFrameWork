@@ -42,13 +42,13 @@ public class ExcelReader{
 					Row firstRow=rows.next();
 					Iterator<Cell> ce=firstRow.cellIterator();
 					int k=0;
-					int column=0;
+					int TestCaseRowNumber=0;
 					int l=0;
 					int desiredColumn=0;
 					while(ce.hasNext()) {
 						Cell value=ce.next();
 						if(value.getStringCellValue().equalsIgnoreCase(testCaseName)) {
-							column=k;
+							TestCaseRowNumber=k;
 						}
 						k++;
 						if(value.getStringCellValue().equalsIgnoreCase(columnName)) {
@@ -58,7 +58,7 @@ public class ExcelReader{
 					}
 					while(rows.hasNext()) {
 						Row r = rows.next();
-						if(r.getCell(column).getStringCellValue().equalsIgnoreCase(testCaseName))
+						if(r.getCell(TestCaseRowNumber).getStringCellValue().equalsIgnoreCase(testCaseName))
 						{
 							testData=r.getCell(desiredColumn).getStringCellValue();
 						}

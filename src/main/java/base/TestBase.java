@@ -25,7 +25,7 @@ public class TestBase {
 		try {
 			FileInputStream fis = null;
 			fis = new FileInputStream(
-					"C:\\Users\\USER\\Desktop\\SeleniumScriptWorkspace\\SeleniumPOC\\src\\test\\resources\\LocalSetting.properties");
+					"D:\\StudyMaterial\\AutomationFrameWork\\src\\test\\resources\\LocalSetting.properties");
 			prop.load(fis);
 		} catch (IOException ex) {
 
@@ -42,7 +42,7 @@ public class TestBase {
 		System.out.println(exactClassName.length);
 		dataTable = new ExcelReader(exactClassName);
 		
-		  currentClassName = className;
+		  //currentClassName = className;
 		  if(prop.getProperty("browser").equals("chrome")) {
 		  WebDriverManager.chromedriver().setup(); driver=new ChromeDriver(); } else
 		  if(prop.getProperty("browser").equals("edge")) {
