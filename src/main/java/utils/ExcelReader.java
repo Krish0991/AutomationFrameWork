@@ -10,7 +10,9 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import base.TestBase;
-
+/**
+ * Excel reading mechanism
+ */
 public class ExcelReader{
 	
 	String testCaseName=null;
