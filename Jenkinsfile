@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         jdk 'JDK11'          // Change to your configured JDK name in Jenkins
-        maven 'Maven3'       // Change to your configured Maven name
+        maven 'Maven3.27'       // Change to your configured Maven name
     }
 
     triggers {
@@ -18,8 +18,8 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/username/repo-name.git'
+                git branch: 'develop',
+                    url: 'https://github.com/Krish0991/AutomationFrameWork.git'
             }
         }
 
