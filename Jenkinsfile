@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         jdk 'JDK21'          // Change to your configured JDK name in Jenkins
-        maven 'Maven3.9.12'       // Change to your configured Maven name
+        maven 'MAVEN'       // Change to your configured Maven name
     }
 
     triggers {
