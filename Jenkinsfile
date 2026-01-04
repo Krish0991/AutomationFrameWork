@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK11'          // Change to your configured JDK name in Jenkins
-        maven 'Maven3.27'       // Change to your configured Maven name
+        jdk 'JDK21'          // Change to your configured JDK name in Jenkins
+        maven 'Maven3.9.12'       // Change to your configured Maven name
     }
 
     triggers {
